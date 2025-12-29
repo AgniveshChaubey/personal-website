@@ -1,0 +1,49 @@
+<svg
+  viewBox="0 0 256 256"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="IOFlux logo"
+>
+  <defs>
+    <linearGradient id="fluxGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- I (Input) -->
+  <rect
+    x="40"
+    y="40"
+    width="16"
+    height="176"
+    rx="8"
+    fill="url(#fluxGradient)"
+  />
+
+  <!-- O (Core system) -->
+  <circle
+    cx="128"
+    cy="128"
+    r="64"
+    fill="none"
+    stroke="url(#fluxGradient)"
+    stroke-width="15"
+  />
+  <path
+    d="M104 112 L120 128 L104 144"
+    fill="none"
+    stroke="url(#fluxGradient)"
+    stroke-width="15"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M140 112 L156 128 L140 144"
+    fill="none"
+    stroke="url(#fluxGradient)"
+    stroke-width="15"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

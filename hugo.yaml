@@ -1,0 +1,134 @@
+baseURL: "https://blog.ioflux.org/"
+title: "Agnivesh Chaubey"
+theme: "PaperMod"
+pagination:
+  pagerSize: 5
+# paginate: 5  # show 5 posts on homepage and /posts
+
+enableRobotsTXT: true
+
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: false
+  minifyOutput: true
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: "Articles / Blogs / Learning / Experience by Agnivesh Chaubey"
+  author: "Agnivesh Chaubey"
+  DateFormat: "January 2, 2006"
+
+  defaultTheme: auto
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  # ShowShareButtons: true
+  # ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  # ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+
+  UseHugoToc: true
+  tocopen: true
+  # showtoc: true
+  disableSpecial1stPost: true
+  disableScrollToTop: false
+
+  hidemeta: false
+  hideSummary: false
+  hiddenInHomelist: false
+
+  mainSections: ["posts"]
+
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "/ioflux.svg"
+    apple_touch_icon: "/ioflux.svg"
+    safari_pinned_tab: "/ioflux.svg"
+
+  # Home label
+  label:
+    text: "Home"
+    # icon: /ioflux.svg
+    # iconHeight: 35
+
+  # Profile Mode (Home Page)
+  profileMode:
+    enabled: true
+    title: "Agnivesh Chaubey"
+    # subtitle: ""
+    description: >
+
+    imageUrl: "/avatar.png"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: "Agnivesh Chaubey"
+    buttons:
+      - name: Posts
+        url: posts
+      - name: About
+        url: about
+
+  # Social links
+  socialIcons:
+    - name: github
+      url: "https://github.com/AgniveshChaubey"
+    - name: x
+      url: "https://x.com/sudoAgni"
+    - name: linkedin
+      url: "https://linkedin.com/in/agniveshchaubey"
+
+  # TODO: add search engine varification codes
+  # analytics:
+  #   google:
+  #     SiteVerificationTag: "YOUR_GOOGLE_VERIFICATION_CODE"
+  #   bing:
+  #     SiteVerificationTag: "YOUR_BING_VERIFICATION_CODE"
+  #   yandex:
+  #     SiteVerificationTag: "YOUR_YANDEX_VERIFICATION_CODE"
+
+  # TODO: Google Analytics tracking (for visitor stats)
+  # googleAnalytics: "UA-XXXXXXXXX-Y"  # Replace with your GA tracking ID
+  
+  # # Edit on GitHub
+  # editPost:
+  #   URL: "https://github.com/AgniveshChaubey/blog/content"
+  #   Text: "Suggest Changes"
+  #   appendFilePath: true
+
+  # # Search (Fuse.js)
+  # fuseOpts:
+  #   threshold: 0.4
+  #   limit: 10
+  #   keys: ["title", "summary", "content"]
+
+# Main navigation
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 20
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 30
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 40
+
+# Syntax highlighting
+pygmentsUseClasses: true
+markup:
+  highlight:
+    noClasses: false
