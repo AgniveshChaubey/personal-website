@@ -30,19 +30,19 @@ params:
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   # ShowWordCount: true
-  ShowRssButtonInSectionTermList: true
+  # ShowRssButtonInSectionTermList: true
 
   UseHugoToc: true
   tocopen: true
   # showtoc: true
-  disableSpecial1stPost: true
+  # disableSpecial1stPost: true
   disableScrollToTop: false
 
   hidemeta: false
   hideSummary: false
   hiddenInHomelist: false
 
-  mainSections: ["posts"]
+  # mainSections: ["posts"]
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -82,6 +82,8 @@ params:
       url: "https://x.com/sudoAgni"
     - name: linkedin
       url: "https://linkedin.com/in/agniveshchaubey"
+    # - name: rss
+      # url: "/index.xml"
 
   # TODO: add search engine varification codes
   # analytics:
