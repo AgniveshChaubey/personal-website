@@ -27,7 +27,7 @@ params:
   ShowReadingTime: true
   # ShowShareButtons: true
   # ShowPostNavLinks: true
-  ShowBreadCrumbs: true
+  # ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   # ShowWordCount: true
   # ShowRssButtonInSectionTermList: true
@@ -63,16 +63,22 @@ params:
     title: "Agnivesh Chaubey"
     # subtitle: ""
     description: >
+      I build infrastructure, DevOps systems, and open-source developer tooling with a focus on clarity and reliability.
+
+
+      I maintain and mentor in the **[JSON Schema](https://json-schema.org)** ecosystem and lead projects under **[IOFlux](https://github.com/ioflux-org)**, building tools that make complex data systems easier to understand and operate.
+      
+      ### _[Posts](/posts) &nbsp;|&nbsp; [About](/about)_
 
     imageUrl: "/avatar.png"
     imageWidth: 120
     imageHeight: 120
     imageTitle: "Agnivesh Chaubey"
-    buttons:
-      - name: Posts
-        url: posts
-      - name: About
-        url: about
+    # buttons:
+    #   - name: Posts
+    #     url: posts
+    #   - name: About
+    #     url: about
 
   # Social links
   socialIcons:
