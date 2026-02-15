@@ -71,7 +71,7 @@ Mentoring and community work have become an important part of my journey, and I 
 
 ---
 
-## Get in touch
+## Lets connect
 
 If you’re interested in my work, exploring potential collaborations, or discussing infrastructure, developer tooling, or open-source systems, feel free to reach out.
 
