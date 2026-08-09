@@ -5,7 +5,7 @@ title = 'Azure Front Door Quirks'
 
 tags = [ "azure", "azure-front-door", "azure-application-gateway", "azure-blob-storage", "cdn", "url-rewrite", "routing", "cloud-engineering", "production-issues", "debugging", "networking", "performance-optimization" ]
 
-categories = [ "Azure", "Azure Cloud", "Cloud Engineering", "Backend Engineering", "Debugging", "Networking" ]
+categories = [ "Azure", "Cloud Engineering", "DevOps" ]
 +++
 
 Recently faced some unusual behaviour during Azure Front Door setup for my client's application -- so thought to write it down for my future reference and make it easier for others if they're stuck in a similar sort of issue.

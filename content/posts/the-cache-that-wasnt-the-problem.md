@@ -4,7 +4,7 @@ draft = false
 title = 'The Cache That Wasnt the Problem: A Production Debugging Story'
 
 tags = [ "redis", "caching", "cache-invalidation", "in-memory-cache", "microservices", "distributed-systems", "debugging", "production-issues", "system-design", "backend-engineering" ]
-categories = [ "Backend Engineering", "System Design", "Distributed Systems", "Debugging" ]
+categories = [ "Backend Engineering", "System Design" ]
 
 description = ""
 +++

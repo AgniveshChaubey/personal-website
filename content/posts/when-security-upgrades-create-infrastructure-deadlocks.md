@@ -5,7 +5,7 @@ title = 'When Security Upgrades Create Infrastructure Deadlocks'
 
 
 tags = [ "azure", "vmss", "trusted-launch", "azure-compute-gallery", "infrastructure", "cloud-security", "devops", "image-pipeline" ]
-categories = [ "Azure", "Cloud Architecture", "DevOps", "Infrastructure" ]
+categories = [ "Azure", "DevOps" ]
 
 description = ""
 

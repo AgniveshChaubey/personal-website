@@ -5,7 +5,7 @@ title = 'What It Takes to Run ECS in Production'
 
 tags = [ "aws", "ecs", "fargate", "containers", "docker", "iam", "load-balancing", "service-discovery", "cloud-engineering", "production-issues", "debugging", "troubleshooting", "networking" ]
 
-categories = [ "AWS", "Cloud Engineering", "DevOps", "Debugging" ]
+categories = [ "AWS", "Cloud Engineering", "DevOps" ]
 
 description = "A complete walkthrough of every ECS building block, plus a field guide of the real errors we hit during a production Fargate rollout -- each one linked to the concept that explains it."
 +++
@@ -14,7 +14,7 @@ We recently moved a multi-service application -- a couple of backend APIs and a 
 
 We also hit a lot of errors along the way. Rather than hiding them, this post embraces them: the first half walks through each ECS component, and the second half is a [troubleshooting guide](#troubleshooting-guide) with the actual errors we faced, their root causes, and fixes.
 
-**Contents:** [Why ECS](#why-ecs) · [The building blocks](#the-building-blocks) · [The task definition](#the-task-definition) · [The service](#the-service) · [IAM roles](#iam-execution-role-vs-task-role) · [Security groups](#security-groups-zero-trust-by-default) · [Troubleshooting guide](#troubleshooting-guide)
+**Contents:** [Why ECS](#why-ecs) | [The building blocks](#the-building-blocks) | [The task definition](#the-task-definition) | [The service](#the-service) | [IAM roles](#iam-execution-role-vs-task-role) | [Security groups](#security-groups-zero-trust-by-default) | [Troubleshooting guide](#troubleshooting-guide)
 
 ## Why ECS
 
