@@ -1,0 +1,13 @@
+{{- define "main" }}
+{{- /* /tags/ and /categories/: every term with its number of posts. */}}
+<header class="page-header">
+  <div>
+    <h1 class="page-title">{{ .Title | strings.FirstUpper }}</h1>
+  </div>
+</header>
+<ul class="tags tags-large">
+  {{- range .Data.Terms.Alphabetical }}
+  <li><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }} <span>{{ .Count }}</span></a></li>
+  {{- end }}
+</ul>
+{{- end }}

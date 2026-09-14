@@ -1,0 +1,12 @@
+{{- define "main" }}
+<header class="page-header">
+  <div>
+    <h1 class="page-title">Page not found</h1>
+    <p class="standfirst">Nothing lives at this address. It may have moved, or the link may be mistyped.</p>
+  </div>
+</header>
+<p class="hero-links">
+  <a class="button button-primary" href="{{ "/" | relURL }}">Go to the home page</a>
+  <a class="button" href="{{ "posts/" | relURL }}">Browse all posts</a>
+</p>
+{{- end }}

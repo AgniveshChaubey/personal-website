@@ -1,0 +1,10 @@
+{{- /* Your portrait from params.image, cropped square. Takes a dict: size (px), class. */ -}}
+{{- $size := .size | default 200 }}
+{{- with site.Params.image }}
+  {{- with resources.Get . }}
+    {{- /* Render at 2x for sharp screens, never larger than the source. */}}
+    {{- $px := math.Min (mul $size 2) .Width .Height | int }}
+    {{- $img := .Fill (printf "%dx%d Center webp q85" $px $px) }}
+<img class="{{ $.class }}" src="{{ $img.RelPermalink }}" width="{{ $size }}" height="{{ $size }}" alt="{{ $.alt | default (printf "Portrait of %s" site.Params.author) }}" {{ with $.lazy }}loading="lazy" {{ end }}decoding="async">
+  {{- end }}
+{{- end }}

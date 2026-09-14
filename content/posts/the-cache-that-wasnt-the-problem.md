@@ -1,7 +1,7 @@
 +++
 date = '2026-04-03T18:04:36Z'
 draft = false
-title = 'The Cache That Wasnt the Problem: A Production Debugging Story'
+title = "The Cache That Wasn’t the Problem: A Production Debugging Story"
 
 tags = [ "redis", "caching", "cache-invalidation", "in-memory-cache", "microservices", "distributed-systems", "debugging", "production-issues", "system-design", "backend-engineering" ]
 categories = [ "Backend Engineering", "System Design" ]

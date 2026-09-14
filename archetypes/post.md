@@ -3,15 +3,9 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: false
 
-tags: []
-categories: []
-
+# One sentence. Shown under the title and in link previews (LinkedIn, X).
 description: ""
 
-cover:
-  image: ""
-  alt: ""
-  caption: ""
-  relative: false
-  hidden: false
+tags: []
+categories: []
 ---

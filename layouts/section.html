@@ -1,0 +1,20 @@
+{{- define "main" }}
+{{- /* /posts/: every post, newest first, grouped by year. */}}
+<header class="page-header">
+  <div>
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{- with .Description }}
+    <p class="standfirst">{{ . | markdownify }}</p>
+    {{- end }}
+  </div>
+</header>
+{{- with .Content }}
+<div class="prose">{{ . }}</div>
+{{- end }}
+{{- range .RegularPages.GroupByDate "2006" }}
+<section class="year-group" aria-labelledby="year-{{ .Key }}">
+  <h2 class="year" id="year-{{ .Key }}">{{ .Key }}</h2>
+  {{- partial "post-list.html" (dict "pages" .Pages "level" 3) }}
+</section>
+{{- end }}
+{{- end }}

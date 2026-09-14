@@ -1,0 +1,92 @@
+{{- /* A single post: header, body with "On this page" list for long posts, then tags, author and newer/older links. */ -}}
+{{- $tocCount := 0 }}
+{{- range .Fragments.HeadingsMap }}
+  {{- if and (ge .Level 2) (le .Level 3) }}{{ $tocCount = add $tocCount 1 }}{{ end }}
+{{- end }}
+{{- $showToc := and (ge $tocCount 3) (ne .Params.toc false) }}
+{{- $toc := "" }}
+{{- if $showToc }}
+  {{- /* Drop Hugo's id so the list can appear twice (sidebar on wide screens, collapsible on small ones). */}}
+  {{- $toc = .TableOfContents | replaceRE `<nav id="TableOfContents">` "<nav>" | safeHTML }}
+{{- end }}
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- with .Description }}
+    <p class="standfirst">{{ . | markdownify }}</p>
+    {{- end }}
+    <div class="byline">
+      {{- partial "portrait.html" (dict "size" 40 "class" "byline-portrait" "alt" "") }}
+      <div>
+        <p class="byline-name"><a href="{{ "about/" | relURL }}">{{ site.Params.author }}</a></p>
+        <p class="meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 January 2006" }}</time>
+          <span>{{ .ReadingTime }} min read</span>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="post-layout{{ if $showToc }} has-toc{{ end }}">
+    <div class="post-main">
+      {{- if $showToc }}
+      <details class="toc toc-inline">
+        <summary>On this page</summary>
+        {{ $toc }}
+      </details>
+      {{- end }}
+      <div class="prose">
+        {{ .Content }}
+      </div>
+    </div>
+    {{- if $showToc }}
+    <aside class="toc toc-side" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+      {{ $toc }}
+    </aside>
+    {{- end }}
+  </div>
+
+  <footer class="post-footer">
+    {{- with .GetTerms "tags" }}
+    <ul class="tags" aria-label="Tags">
+      {{- range . }}
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+
+    <section class="author" aria-label="About the author">
+      {{- partial "portrait.html" (dict "size" 64 "class" "author-portrait" "alt" "" "lazy" true) }}
+      <div>
+        <p class="author-name">{{ site.Params.author }}</p>
+        {{- with site.Params.bio }}
+        <p class="author-bio">{{ . }}</p>
+        {{- end }}
+        <ul class="author-links">
+          {{- range site.Params.social }}
+          <li><a href="{{ .url }}">{{ .name }}</a></li>
+          {{- end }}
+          {{- with site.Params.email }}
+          <li><a href="mailto:{{ . }}">Email</a></li>
+          {{- end }}
+        </ul>
+      </div>
+    </section>
+
+    {{- /* Posts are sorted newest first. In Hugo, .Next on that list points up (newer), .Prev points down (older). */}}
+    {{- $posts := where site.RegularPages "Section" "posts" }}
+    {{- $newer := $posts.Next . }}
+    {{- $older := $posts.Prev . }}
+    {{- if or $newer $older }}
+    <nav class="post-nav" aria-label="More writing">
+      {{- with $newer }}
+      <a class="post-nav-newer" href="{{ .RelPermalink }}"><span>Newer post</span><strong>{{ .Title }}</strong></a>
+      {{- end }}
+      {{- with $older }}
+      <a class="post-nav-older" href="{{ .RelPermalink }}"><span>Older post</span><strong>{{ .Title }}</strong></a>
+      {{- end }}
+    </nav>
+    {{- end }}
+  </footer>
+</article>

@@ -1,0 +1,41 @@
+{{- define "main" }}
+{{- if eq .Section "posts" }}
+  {{- partial "post.html" . }}
+{{- else }}
+{{- /* Other pages (About). Set `profile: true` in front matter to show the profile card beside the text. */}}
+<article class="page">
+  <header class="page-header">
+    <div>
+      <h1 class="page-title">{{ .Title }}</h1>
+      {{- with .Description }}
+      <p class="standfirst">{{ . | markdownify }}</p>
+      {{- end }}
+    </div>
+  </header>
+  <div class="page-layout{{ if .Params.profile }} has-profile{{ end }}">
+    <div class="prose">
+      {{ .Content }}
+    </div>
+    {{- if .Params.profile }}
+    <aside class="profile" aria-label="Profile">
+      {{- partial "portrait.html" (dict "size" 160 "class" "profile-portrait") }}
+      <div class="profile-text">
+        <p class="profile-name">{{ site.Params.author }}</p>
+        {{- with site.Params.role }}
+        <p class="profile-role">{{ . }}</p>
+        {{- end }}
+        <ul class="profile-links">
+          {{- with site.Params.email }}
+          <li><a href="mailto:{{ . }}">Email</a></li>
+          {{- end }}
+          {{- range site.Params.social }}
+          <li><a href="{{ .url }}">{{ .name }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
+    </aside>
+    {{- end }}
+  </div>
+</article>
+{{- end }}
+{{- end }}

@@ -1,0 +1,46 @@
+{{- define "main" }}
+{{- /* Home: intro from content/_index.md, recent writing, featured projects from content/projects.md. */}}
+<section class="hero" aria-labelledby="hero-name">
+  <div class="hero-text">
+    <h1 class="hero-name" id="hero-name">{{ site.Title }}</h1>
+    {{- with site.Params.role }}
+    <p class="hero-role">{{ . }}</p>
+    {{- end }}
+    <div class="hero-intro">
+      {{ .Content }}
+    </div>
+    <ul class="hero-links">
+      {{- with site.Params.email }}
+      <li><a class="button button-primary" href="mailto:{{ . }}">Email me</a></li>
+      {{- end }}
+      {{- range site.Params.social }}
+      <li><a class="button" href="{{ .url }}">{{ .name }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- partial "portrait.html" (dict "size" 208 "class" "hero-portrait") }}
+</section>
+
+{{- $posts := where site.RegularPages "Section" "posts" }}
+{{- with $posts }}
+<section class="section" aria-labelledby="writing">
+  <div class="section-head">
+    <h2 id="writing">Writing</h2>
+    <a href="{{ "posts/" | relURL }}">All posts</a>
+  </div>
+  {{- partial "post-list.html" (dict "pages" (first 5 .) "level" 3) }}
+</section>
+{{- end }}
+
+{{- with site.GetPage "/projects" }}
+  {{- with where .Params.projects "featured" true }}
+<section class="section" aria-labelledby="open-source">
+  <div class="section-head">
+    <h2 id="open-source">Open source</h2>
+    <a href="{{ "projects/" | relURL }}">All projects</a>
+  </div>
+  {{- partial "project-cards.html" (dict "projects" . "level" 3) }}
+</section>
+  {{- end }}
+{{- end }}
+{{- end }}

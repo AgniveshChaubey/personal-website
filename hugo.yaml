@@ -1,142 +1,54 @@
-baseURL: "https://blog.ioflux.org/"
+baseURL: "https://agnivesh.in/"
+languageCode: "en"
 title: "Agnivesh Chaubey"
-theme: "PaperMod"
-pagination:
-  pagerSize: 5
-# paginate: 5  # show 5 posts on homepage and /posts
 
 enableRobotsTXT: true
 
-buildDrafts: false
-buildFuture: false
-buildExpired: false
+# Show tags as written in each post ("cache-invalidation", not "Cache-Invalidation").
+capitalizeListTitles: false
 
 minify:
-  disableXML: false
   minifyOutput: true
 
 params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: "Articles / Blogs / Learning / Experience by Agnivesh Chaubey"
   author: "Agnivesh Chaubey"
-  DateFormat: "January 2, 2006"
-
-  defaultTheme: auto
-  disableThemeToggle: false
-
-  ShowReadingTime: true
-  # ShowShareButtons: true
-  # ShowPostNavLinks: true
-  # ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  # ShowWordCount: true
-  # ShowRssButtonInSectionTermList: true
-
-  UseHugoToc: true
-  tocopen: true
-  # showtoc: true
-  # disableSpecial1stPost: true
-  disableScrollToTop: false
-
-  hidemeta: false
-  hideSummary: false
-  hiddenInHomelist: false
-
-  # mainSections: ["posts"]
-
-  assets:
-    # disableHLJS: true # to disable highlight.js
-    # disableFingerprinting: true
-    favicon: "/ioflux.svg"
-    apple_touch_icon: "/ioflux.svg"
-    safari_pinned_tab: "/ioflux.svg"
-
-  # Home label
-  label:
-    text: "Home"
-    # icon: /ioflux.svg
-    # iconHeight: 35
-
-  # Profile Mode (Home Page)
-  profileMode:
-    enabled: true
-    title: "Agnivesh Chaubey"
-    # subtitle: ""
-    description: >
-      I build infrastructure, DevOps systems, and open-source developer tooling with a focus on clarity and reliability.
-
-
-      I maintain and mentor in the **[JSON Schema](https://json-schema.org)** ecosystem and lead projects under **[IOFlux](https://github.com/ioflux-org)**, building tools that make complex data systems easier to understand and operate.
-      
-      ### _[Posts](/posts) &nbsp;|&nbsp; [About](/about)_
-
-    imageUrl: "/avatar.png"
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: "Agnivesh Chaubey"
-    # buttons:
-    #   - name: Posts
-    #     url: posts
-    #   - name: About
-    #     url: about
-
-  # Social links
-  socialIcons:
-    - name: github
+  # Shown under your name on the home page.
+  role: "Platform and infrastructure engineer"
+  # Shown in the author box at the end of every post.
+  bio: "Platform and infrastructure engineer. Maintainer and Google Summer of Code mentor at JSON Schema."
+  # Used for search results and link previews when a page has no description of its own.
+  description: "Agnivesh Chaubey is a platform and infrastructure engineer, and a maintainer and Google Summer of Code mentor at JSON Schema."
+  email: "agniveshvapi@gmail.com"
+  # Your portrait (in assets/). Used on the home page, in post bylines, and in link previews.
+  image: "avatar.png"
+  # Your X handle, for link previews on X.
+  x: "sudoAgni"
+  social:
+    - name: GitHub
       url: "https://github.com/AgniveshChaubey"
-    - name: x
+    - name: LinkedIn
+      url: "https://www.linkedin.com/in/agniveshchaubey"
+    - name: X
       url: "https://x.com/sudoAgni"
-    - name: linkedin
-      url: "https://linkedin.com/in/agniveshchaubey"
-    # - name: rss
-      # url: "/index.xml"
 
-  # TODO: add search engine varification codes
-  # analytics:
-  #   google:
-  #     SiteVerificationTag: "YOUR_GOOGLE_VERIFICATION_CODE"
-  #   bing:
-  #     SiteVerificationTag: "YOUR_BING_VERIFICATION_CODE"
-  #   yandex:
-  #     SiteVerificationTag: "YOUR_YANDEX_VERIFICATION_CODE"
-
-  # TODO: Google Analytics tracking (for visitor stats)
-  # googleAnalytics: "UA-XXXXXXXXX-Y"  # Replace with your GA tracking ID
-  
-  # # Edit on GitHub
-  # editPost:
-  #   URL: "https://github.com/AgniveshChaubey/blog/content"
-  #   Text: "Suggest Changes"
-  #   appendFilePath: true
-
-  # # Search (Fuse.js)
-  # fuseOpts:
-  #   threshold: 0.4
-  #   limit: 10
-  #   keys: ["title", "summary", "content"]
-
-# Main navigation
-menu:
+menus:
   main:
-    - identifier: posts
-      name: Posts
-      url: /posts/
+    - name: Writing
+      pageRef: /posts
       weight: 10
-    - identifier: categories
-      name: Categories
-      url: /categories/
+    - name: Projects
+      pageRef: /projects
       weight: 20
-    - identifier: tags
-      name: Tags
-      url: /tags/
+    - name: About
+      pageRef: /about
       weight: 30
-    - identifier: about
-      name: About
-      url: /about/
-      weight: 40
 
-# Syntax highlighting
-pygmentsUseClasses: true
 markup:
   highlight:
+    # Emit CSS classes so code colors can follow light and dark mode (see assets/css/main.css).
     noClasses: false
+  # The "On this page" list on long posts.
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+    ordered: false

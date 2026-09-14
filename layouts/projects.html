@@ -1,0 +1,36 @@
+{{- define "main" }}
+{{- /* /projects/: used by content/projects.md (layout: projects). Edit the lists in that file. */}}
+<header class="page-header">
+  <div>
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{- with .Description }}
+    <p class="standfirst">{{ . | markdownify }}</p>
+    {{- end }}
+  </div>
+</header>
+{{- with .Content }}
+<div class="prose">{{ . }}</div>
+{{- end }}
+
+{{- with .Params.projects }}
+{{- partial "project-cards.html" (dict "projects" . "level" 2) }}
+{{- end }}
+
+{{- with .Params.community }}
+<section class="section" aria-labelledby="community">
+  <div class="section-head">
+    <h2 id="community">Community</h2>
+  </div>
+  <ul class="post-list">
+    {{- range . }}
+    <li class="post-item">
+      <h3 class="post-item-title">
+        {{- if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end -}}
+      </h3>
+      <p class="post-item-summary">{{ .text }}</p>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+{{- end }}
+{{- end }}

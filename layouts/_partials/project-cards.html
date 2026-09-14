@@ -1,0 +1,14 @@
+{{- /* Project cards. Takes a dict: projects (list from content/projects.md), level (heading level). */ -}}
+{{- $level := .level | default 3 }}
+<ul class="project-grid">
+  {{- range .projects }}
+  <li class="project">
+    <h{{ $level }} class="project-name"><a href="{{ .url }}">{{ .name }}</a></h{{ $level }}>
+    {{- with .role }}
+    <p class="project-role">{{ . }}</p>
+    {{- end }}
+    <p class="project-text">{{ .text }}</p>
+    <p class="project-url">{{ replaceRE `^https?://(www\.)?` "" .url | strings.TrimSuffix "/" }}</p>
+  </li>
+  {{- end }}
+</ul>

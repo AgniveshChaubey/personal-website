@@ -1,0 +1,8 @@
+{{- /* One- or two-sentence summary of a post: its description, or the start of the post. */ -}}
+{{- $s := "" }}
+{{- if .Description }}
+  {{- $s = .Description | markdownify | plainify | htmlUnescape }}
+{{- else }}
+  {{- $s = .Summary | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace | truncate 180 }}
+{{- end }}
+{{- return $s }}

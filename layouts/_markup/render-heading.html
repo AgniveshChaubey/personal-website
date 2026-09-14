@@ -1,0 +1,8 @@
+{{- /* Headings link to themselves so a section can be shared. Ids match Hugo's defaults, so existing #anchors keep working. */ -}}
+<h{{ .Level }} id="{{ .Anchor }}">
+  {{- if strings.Contains (string .Text) "<a " -}}
+    {{ .Text }}
+  {{- else -}}
+    <a class="heading-link" href="#{{ .Anchor }}">{{ .Text }}</a>
+  {{- end -}}
+</h{{ .Level }}>

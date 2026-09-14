@@ -1,0 +1,19 @@
+{{- /* Code blocks: a slim bar with the language and a Copy button (enabled by assets/js/site.js), then the highlighted code. */ -}}
+{{- $lang := lower .Type }}
+{{- $names := dict
+  "bash" "Bash" "sh" "Shell" "shell" "Shell" "zsh" "Shell" "console" "Console"
+  "json" "JSON" "yaml" "YAML" "yml" "YAML" "toml" "TOML" "xml" "XML"
+  "js" "JavaScript" "javascript" "JavaScript" "ts" "TypeScript" "typescript" "TypeScript"
+  "go" "Go" "python" "Python" "py" "Python" "hcl" "HCL" "terraform" "Terraform"
+  "dockerfile" "Dockerfile" "sql" "SQL" "html" "HTML" "css" "CSS" "diff" "Diff" "powershell" "PowerShell"
+}}
+{{- $label := index $names $lang | default $lang }}
+{{- if in (slice "text" "txt" "plain" "plaintext") $lang }}{{ $label = "" }}{{ end }}
+{{- $result := transform.HighlightCodeBlock . }}
+<div class="code-block">
+  <div class="code-head">
+    <span class="code-lang">{{ $label }}</span>
+    <button class="code-copy" type="button" hidden>Copy</button>
+  </div>
+  {{ $result.Wrapped }}
+</div>

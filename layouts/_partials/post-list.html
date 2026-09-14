@@ -1,0 +1,14 @@
+{{- /* Posts as rows: title, summary, date and reading time. Takes a dict: pages, level (heading level for titles). */ -}}
+{{- $level := .level | default 3 }}
+<ul class="post-list">
+  {{- range .pages }}
+  <li class="post-item">
+    <h{{ $level }} class="post-item-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h{{ $level }}>
+    <p class="post-item-summary">{{ partial "summary.html" . }}</p>
+    <p class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 Jan 2006" }}</time>
+      <span>{{ .ReadingTime }} min read</span>
+    </p>
+  </li>
+  {{- end }}
+</ul>

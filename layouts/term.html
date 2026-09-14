@@ -1,0 +1,11 @@
+{{- define "main" }}
+{{- /* A single tag or category: the posts filed under it. */}}
+{{- $count := len .RegularPages }}
+<header class="page-header">
+  <div>
+    <h1 class="page-title">{{ .Title }}</h1>
+    <p class="standfirst">{{ $count }} {{ cond (eq $count 1) "post" "posts" }}{{ with .Parent }}. <a href="{{ .RelPermalink }}">See all {{ lower .Title }}</a>{{ end }}</p>
+  </div>
+</header>
+{{- partial "post-list.html" (dict "pages" .RegularPages "level" 2) }}
+{{- end }}
